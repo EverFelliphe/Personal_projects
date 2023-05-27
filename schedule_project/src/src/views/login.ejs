@@ -1,0 +1,48 @@
+<%- include('./includes/head');%>
+<%- include('./includes/nav');%>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2"> </div>
+        <div class="col-lg-8 my-2"> 
+          <h1 class=" text-center fw-bold">Criar conta ou Entra</h1>
+          <p class="text-center lead fw-bold ">faça login ou crie a sua conta abaixo</p>
+          <%- include('./includes/messages') %>
+          <div class="row ms-auto">
+            <div class="col-lg">
+              <h4>Faça o seu login</h4>
+              <p>se voce já possui conta, realize o seu login abaixo</p>
+              <form action="/login/login" method="POST">
+                <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Seu email</label>
+                  <input type="email" class="form-control"  aria-describedby="emailHelp" name="email">
+                </div>
+                <div class="mb-3">
+                  <label for="senha" class="form-label">Sua senha</label>
+                  <input type="password" class="form-control" name="senha">
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+              </form>
+            </div>
+            <div class="col-lg">
+              <h4>Realize o seu cadastro</h4>
+              <p>se voce não possui conta, realize o seu cadastro abaixo</p>
+              <form action="/login/register" method="POST">
+                <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Seu email</label>
+                  <input type="email" class="form-control"  aria-describedby="emailHelp" name="email">
+                </div>
+                <div class="mb-3">
+                  <label for="senha" class="form-label">Sua senha</label>
+                  <input type="password" class="form-control" name="senha">
+                </div>
+                <button type="submit" class="btn btn-primary">criar conta</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2"> </div>
+      </div>
+    </div>
+<%- include('./includes/footer');%>
